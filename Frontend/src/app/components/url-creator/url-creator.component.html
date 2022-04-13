@@ -1,0 +1,17 @@
+<div [formGroup]="urlShortenerForm">
+	<mat-form-field>
+		<input formControlName="url" matInput placeholder="Url" type="text">
+	</mat-form-field>
+	<button mat-raised-button (click)="createShortenedUrl()">
+		Generate Url
+	</button>
+	<mat-progress-bar *ngIf="isLoading"></mat-progress-bar>
+</div>
+<div *ngIf="createdUrl">
+	<mat-label>
+		Created Url:
+	</mat-label>
+	<a routerLink="/s/{{createdUrl.shortUrl}}">
+		{{baseShorUrl + createdUrl.shortUrl}}
+	</a>
+</div>
